@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout";
+}
+<h1>Add Employee</h1>
+
+<form asp-action="Add" asp-controller="Employee" method="post">
+    <label>First Name</label>
+    <input id="fname" name="fname" type="text"  class="form-control"/><br />
+
+    <label>Last Name</label>
+    <input id="Lname" name="Lname" type="text" class="form-control" /><br />
+    <label>Address</label>
+    <input id="Address" name="Address" type="text" class="form-control" /><br />
+    
+    <label>Birth Date</label>
+    <input id="BDate" name="BDate" type="date" class="form-control"/><br />
+
+    <label>Salary</label>
+    <input id="salary" name="Salary" type="number" class="form-control" /><br />
+    <label>Gender</label>
+    <input id="Gender" name="Gender" type="radio" value="F" class="form-check-input" />F
+    <input id="Gender" name="Gender" type="radio" value="M" class="form-check-input" />M<br />
+
+    <label>Supervisor</label>
+    <select id="super" name="Super_SSN" class="form-control">
+        <option value="">Choose Supervisor</option>
+        @foreach (var employee in Model)
+        {
+            <option value="@employee.SSN">@employee.Fname</option>
+        }
+    </select><br />
+
+    <input type="submit" value="Add" class="btn btn-primary"/>
+</form>
