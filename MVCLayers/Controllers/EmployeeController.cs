@@ -6,10 +6,10 @@ namespace MVCLayers.Controllers
 {
     public class EmployeeController : Controller
     {
-        private IEmployeeService employeeService;
-        public EmployeeController()
+        private  IEmployeeService employeeService;
+        public EmployeeController(IEmployeeService employeeService)
         {
-            employeeService= new EmployeeService();
+            this.employeeService = employeeService;
         }
         public IActionResult EmployeeList()
         {

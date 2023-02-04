@@ -6,10 +6,10 @@ namespace MVCLayers.Services
 {
     public class EmployeeService : IEmployeeService
     {
-        private IEmployeeRepo employeeRepo;
-        public EmployeeService()
+        private readonly IEmployeeRepo employeeRepo;
+        public EmployeeService(IEmployeeRepo employeeRepo)
         {
-            employeeRepo = new EmployeeRepo();
+            this.employeeRepo = employeeRepo;
         }
         public List<EmployeeVM> GetEmployees()
         {
